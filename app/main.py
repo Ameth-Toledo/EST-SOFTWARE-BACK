@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from app.config.db import Base, engine
-from app.routes.emails_route import api_router
+from app.routes.emails_route import api_router_email
+from app.routes.coments_route import api_router_coment
 
 Base.metadata.create_all(bind=engine)
 
@@ -15,7 +16,8 @@ app.add_middleware(
     allow_headers=["*"],  
 )
 
-app.include_router(api_router)
+app.include_router(api_router_email)
+app.include_router(api_router_coment)
 
 @app.get("/")
 def root():
