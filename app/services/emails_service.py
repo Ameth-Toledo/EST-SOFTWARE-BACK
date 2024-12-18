@@ -26,7 +26,6 @@ def add_email(db: Session, name_email: str, email_user: str, description: str, p
 
     return create_email(db, new_email)
 
-
 def update_email_status(db: Session, email_id: int, new_status: str):
     email = get_email_by_id(db, email_id)
     if email:

@@ -3,6 +3,7 @@ from starlette.middleware.cors import CORSMiddleware
 from app.config.db import Base, engine
 from app.routes.emails_route import api_router_email
 from app.routes.coments_route import api_router_coment
+from app.routes.ayudas_route import api_router_ayuda
 
 Base.metadata.create_all(bind=engine)
 
@@ -18,6 +19,7 @@ app.add_middleware(
 
 app.include_router(api_router_email)
 app.include_router(api_router_coment)
+app.include_router(api_router_ayuda)
 
 @app.get("/")
 def root():
